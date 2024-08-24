@@ -14,6 +14,17 @@ Date: 2024-08-17
 import subprocess
 
 
+def load_input_patterns(file_name):
+    """
+    This function reads the input data from a file.
+    """
+    with open(file_name, 'r') as file:
+        content = file.read().strip()
+    
+    patterns = [pattern.splitlines() for pattern in content.split("\n\n")]
+    return patterns
+
+
 def run_with_auto_input(script_name, inputs):
     """
     This function runs python script with automatic input.
@@ -61,12 +72,14 @@ def run_with_auto_input(script_name, inputs):
 
 def main():
     # Define multiple input patterns
-    input_patterns = [
-        "1.012",
-        "12.340",
-        "99.900",
-        "0.000",
-    ]
+    # input_patterns = [
+    #     "1.012",
+    #     "12.340",
+    #     "99.900",
+    #     "0.000",
+    # ]
+    input_file = "../test_data/test_data_b.txt"
+    input_patterns = load_input_patterns(input_file)
 
     # Prompt the user to choose an input pattern
     print(f"Choose a gantt chart index from {list(range(1, len(input_patterns) + 1))}")
@@ -87,11 +100,11 @@ def main():
     inputs = input_patterns[choice_index]
 
     # Name of the script to run
-    script_name = "b.py"
+    script_name = "../scripts/b.py"
 
     # Call the function to simulate input and run the script
-    run_with_auto_input(script_name, [inputs])
-
+    # run_with_auto_input(script_name, [inputs])
+    run_with_auto_input(script_name, inputs)
 
 if __name__ == "__main__":
     main()
