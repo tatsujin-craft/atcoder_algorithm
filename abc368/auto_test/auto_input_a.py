@@ -3,8 +3,8 @@
 import subprocess
 
 # Definitions of file paths
-INPUT_FILE = "../input_data/data_c.txt"
-SCRIPT_NAME = "../scripts/c.py"
+INPUT_FILE = "../input_data/data_a.txt"
+SCRIPT_NAME = "../scripts/a.py"
 
 
 def load_input_patterns(file_name):
