@@ -1,24 +1,29 @@
 #!/usr/bin/env python3
-"""
-Script Name: auto_input_two_cards.py
-Description: 
-    This script runs two_cards.py with automatic input.
-Usage:
-    $ python3 auto_input_two_cards.py
-
-Author: tatsujin
-Date: 2024-08-17
-"""
-
 
 import subprocess
+
+# Definitions of file paths
+INPUT_FILE = "../input_data/data_f.txt"
+SCRIPT_NAME = "../scripts/f.py"
+
+
+def load_input_patterns(file_name):
+    """
+    This function reads 2D list input data from a file
+    """
+    with open(file_name, "r") as file:
+        content = file.read().strip()
+
+    # Split patterns by blank lines and convert each pattern to a list of lines
+    patterns = [pattern.splitlines() for pattern in content.split("\n\n")]
+    return patterns
 
 
 def run_with_auto_input(script_name, inputs):
     """
-    This function runs python script with automatic input.
+    This function runs a Python script with automatic input.
     """
-    # Combine all inputs into a single string separated by newlines
+    # Join the inputs with newlines
     input_data = "\n".join(inputs)
 
     # Run the script with the input piped to it
@@ -37,44 +42,15 @@ def run_with_auto_input(script_name, inputs):
 
 
 def main():
-    # Define multiple input patterns
-    input_patterns = [
-        # Consecutive gantt chart
-        [
-            "3 100",
-            "17 57 99",
-            "10 36 53",
-        ],
-        [
-            "5 53",
-            "10 20 30 40 50",
-            "1 2 3 4 5",
-        ],
-    ]
+    # Load input patterns from the file
+    input_patterns = load_input_patterns(INPUT_FILE)
 
-    # Prompt the user to choose an input pattern
-    print(f"Choose a gantt chart index from {list(range(1, len(input_patterns) + 1))}")
-    choice = input("Enter index: ").strip()
+    # Execute each input pattern sequentially
+    for index, inputs in enumerate(input_patterns, start=1):
+        print(f"\n--- Execution {index} ---")
 
-    # Ensure the choice is valid
-    if not choice.isdigit() or not 1 <= int(choice) <= len(input_patterns):
-        print(
-            "Invalid index. Please choose a number from "
-            f"{list(range(1, len(input_patterns) + 1))}."
-        )
-        return
-
-    # Convert choice to index (0-based)
-    choice_index = int(choice) - 1
-
-    # Select the input pattern based on the user's choice
-    inputs = input_patterns[choice_index]
-
-    # Name of the script to run
-    script_name = "e.py"
-
-    # Call the function to simulate input and run the script
-    run_with_auto_input(script_name, inputs)
+        # Call the function to simulate input and run the script
+        run_with_auto_input(SCRIPT_NAME, inputs)
 
 
 if __name__ == "__main__":
