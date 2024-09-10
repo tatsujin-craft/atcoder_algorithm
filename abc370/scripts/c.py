@@ -38,26 +38,45 @@
 #     return X
 
 
+# def get_x_list(S, T):
+#     X = []
+#     s_list = list(S)
+#     t_list = list(T)
+
+#     for i in range(len(S)):
+#         if s_list[i] != t_list[i]:
+#             for j in range(i + 1, len(S)):
+#                 if s_list[j] != t_list[j]:
+#                     s_list[j] = min(s_list[j], t_list[j])
+#                     new_state = "".join(s_list)
+#                     if new_state not in X:
+#                         X.append(new_state)
+
+#             s_list[i] = t_list[i]
+#             new_state = "".join(s_list)
+#             if new_state not in X:
+#                 X.append(new_state)
+
+#     return X
+
+
 def get_x_list(S, T):
-    X = []
-    s_list = list(S)
-    t_list = list(T)
+    ans = []  # 操作の結果を格納するリスト
+    n = len(S)  # 文字列の長さ
 
-    for i in range(len(S)):
-        if s_list[i] != t_list[i]:
-            for j in range(i + 1, len(S)):
-                if s_list[j] != t_list[j]:
-                    s_list[j] = min(s_list[j], t_list[j])
-                    new_state = "".join(s_list)
-                    if new_state not in X:
-                        X.append(new_state)
+    # SとTが一致するまで操作を続ける
+    while S != T:
+        nxt = "z" * n  # 次の状態を辞書順最大の文字列で初期化
+        for i in range(n):
+            if S[i] != T[i]:
+                tmp = list(S)  # 一時的なコピーを作成
+                tmp[i] = T[i]  # i番目の文字を変更
+                tmp = "".join(tmp)  # リストを文字列に戻す
+                nxt = min(nxt, tmp)  # 辞書順最小の状態を更新
+        ans.append(nxt)  # 最小の状態を結果に追加
+        S = nxt  # Sを次の状態に更新
 
-            s_list[i] = t_list[i]
-            new_state = "".join(s_list)
-            if new_state not in X:
-                X.append(new_state)
-
-    return X
+    return ans
 
 
 def main():
