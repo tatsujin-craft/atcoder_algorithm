@@ -1,44 +1,69 @@
 #!/usr/bin/env python3
 
+"""
+Find the 2nd son from the three brothers (A, B, C)
 
-def main():
-    S_AB, S_AC, S_BC = input().split()
+Exhaustive case analysis using lexicographical order of binary representation
+0 0 0   < < <   A < B < C
+0 0 1   < < >   A < C < B
+0 1 0   < > <   NG (contradictory pattern)
+0 1 1   < > >   C < A < B
+1 0 0   > < <   B < A < C
+1 0 1   > < >   NG (contradictory pattern)
+1 1 0   > > <   B < C < A
+1 1 1   > > >   C < B < A
+"""
 
-    if (S_AB == "<" and S_BC == "<") or (S_AB == ">" and S_AC == ">"):
-        print("B")
-    elif (S_AB == "<" and S_BC == ">") or (S_AB == ">" and S_AC == "<"):
-        print("C")
-    else:
-        print("A")
 
-
-def main():
-    S_AB, S_AC, S_BC = input().split()
-
+def full_pattern_analysis(S_AB, S_AC, S_BC):
     # A < B < C
     if S_AB == "<" and S_AC == "<" and S_BC == "<":
         print("B")
     # A < C < B
     elif S_AB == "<" and S_AC == "<" and S_BC == ">":
         print("C")
-    # C < A < B
+    # NG
     elif S_AB == "<" and S_AC == ">" and S_BC == "<":
-        print("A")
-    # C < B < A
+        pass
+    # C < A < B
     elif S_AB == "<" and S_AC == ">" and S_BC == ">":
-        print("B")
+        print("A")
     # B < A < C
     elif S_AB == ">" and S_AC == "<" and S_BC == "<":
         print("A")
-    # B < C < A
+    # NG
     elif S_AB == ">" and S_AC == "<" and S_BC == ">":
-        print("C")
-    # A < B < C
+        pass
+    # B < C < A
     elif S_AB == ">" and S_AC == ">" and S_BC == "<":
-        print("B")
-    # A < C < B
-    elif S_AB == ">" and S_AC == ">" and S_BC == ">":
         print("C")
+    # C < B < A
+    elif S_AB == ">" and S_AC == ">" and S_BC == ">":
+        print("B")
+
+
+def optimized_pattern_analysis(S_AB, S_AC, S_BC):
+    # C < A < C, B < A < C
+    if S_AB != S_AC:
+        print("A")
+
+    # A < B < C, C < B < A
+    elif S_AB == S_BC:
+        print("B")
+
+    # A < C < B, B < C < A
+    else:
+        print("C")
+
+
+def main():
+    S_AB, S_AC, S_BC = input().split()
+
+    # Full pattern
+    full_pattern_analysis(S_AB, S_AC, S_BC)
+
+    # Reduced pattern
+    # reduced_pattern_analysis(S_AB, S_AC, S_BC)
 
 
 if __name__ == "__main__":
