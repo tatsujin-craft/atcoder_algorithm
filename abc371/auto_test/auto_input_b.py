@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 
 import subprocess
+import argparse
 
 # Definitions of file paths
 INPUT_FILE = "../input_data/data_b.txt"
 SCRIPT_NAME = "../scripts/b.py"
+PRACTICE_SCRIPT_NAME = "../practice/b.py"
 
 
 def load_input_patterns(file_name):
@@ -42,6 +44,16 @@ def run_with_auto_input(script_name, inputs):
 
 
 def main():
+    # Argument parser to check for the --prac option
+    parser = argparse.ArgumentParser(description="Run script with auto input")
+    parser.add_argument("--prac", action="store_true", help="Run practice script")
+    args = parser.parse_args()
+
+    # Change SCRIPT_NAME if --prac option is provided
+    global SCRIPT_NAME
+    if args.prac:
+        SCRIPT_NAME = PRACTICE_SCRIPT_NAME
+
     # Load input patterns from the file
     input_patterns = load_input_patterns(INPUT_FILE)
 
