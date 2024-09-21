@@ -42,7 +42,7 @@ def full_pattern_analysis(S_AB, S_AC, S_BC):
         print("B")
 
 
-def optimized_pattern_analysis(S_AB, S_AC, S_BC):
+def refined_pattern_analysis(S_AB, S_AC, S_BC):
     # C < A < C, B < A < C
     if S_AB != S_AC:
         print("A")
@@ -62,8 +62,8 @@ def main():
     # Full pattern
     full_pattern_analysis(S_AB, S_AC, S_BC)
 
-    # Reduced pattern
-    # reduced_pattern_analysis(S_AB, S_AC, S_BC)
+    # Refined pattern
+    # refined_pattern_analysis(S_AB, S_AC, S_BC)
 
 
 if __name__ == "__main__":
