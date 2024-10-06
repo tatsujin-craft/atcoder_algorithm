@@ -1,3 +1,10 @@
+/**
+ * @file    a.cpp
+ * @brief   This program is a template.
+ * @author  tatsujin
+ * @date    xxxx-yy-zz
+ */
+
 #include <bits/stdc++.h>
 using namespace std;
 

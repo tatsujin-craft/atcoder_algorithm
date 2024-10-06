@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+"""
+Script Name: c.py
+Description: This script is a template.
+Author: tatsujin
+Date: xxxx-yy-zz
+"""
 
 
 def get_result_by_brute_force(hitpoints):

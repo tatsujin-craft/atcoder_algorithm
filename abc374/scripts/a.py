@@ -1,13 +1,10 @@
 #!/usr/bin/env python3
-
-
-# def main():
-#     S = input().strip()
-
-#     if "san" in S:
-#         print("Yes")
-#     else:
-#         print("No")
+"""
+Script Name: a.py
+Description: This script checks if a string ends with "san".
+Author: tatsujin
+Date: 2024-10-05
+"""
 
 
 def main():

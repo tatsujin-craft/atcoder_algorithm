@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+"""
+Script Name: g.py
+Description: This script is a template.
+Author: tatsujin
+Date: xxxx-yy-zz
+"""
 
 
 def get_rotate_cards(N, K, cards):

@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+"""
+Script Name: b.py
+Description: This script is a template.
+Author: tatsujin
+Date: xxxx-yy-zz
+"""
 
 
 def get_repeat_count_after_operation(N, A):
