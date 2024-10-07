@@ -8,7 +8,7 @@ Date: 2024-10-05
 
 
 def main():
-    S = input().strip()
+    S = input()
 
     if S.endswith("san"):
         print("Yes")
