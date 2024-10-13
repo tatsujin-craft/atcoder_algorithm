@@ -134,38 +134,38 @@ Date: xxxx-yy-zz
 #     main()
 
 
-# def count_palindromic_triplets(S):
-#     n = len(S)
-#     count = 0
-#     for i in range(n - 2):
-#         for j in range(i + 1, n - 1):
-#             for k in range(j + 1, n):
-#                 if S[i] == S[k]:
-#                     count += 1
-#     return count
+def count_palindromic_triplets(S):
+    n = len(S)
+    count = 0
+    for i in range(n - 2):
+        for j in range(i + 1, n - 1):
+            for k in range(j + 1, n):
+                if S[i] == S[k]:
+                    count += 1
+    return count
 
-# def main():
-#     S = input()
-#     print(count_palindromic_triplets(S))
+def main():
+    S = input()
+    print(count_palindromic_triplets(S))
 
 
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    main()
 
-S = input().strip()
-n = len(S)
-sum_count = [[0] * (n + 1) for _ in range(26)]
+# S = input().strip()
+# n = len(S)
+# sum_count = [[0] * (n + 1) for _ in range(26)]
 
-for i in range(n):
-    for j in range(26):
-        sum_count[j][i + 1] = sum_count[j][i]
-    sum_count[ord(S[i]) - ord("A")][i + 1] += 1
+# for i in range(n):
+#     for j in range(26):
+#         sum_count[j][i + 1] = sum_count[j][i]
+#     sum_count[ord(S[i]) - ord("A")][i + 1] += 1
 
-ans = 0
-for i in range(1, n - 1):
-    for j in range(26):
-        l = sum_count[j][i]
-        r = sum_count[j][n] - sum_count[j][i + 1]
-        ans += l * r
+# ans = 0
+# for i in range(1, n - 1):
+#     for j in range(26):
+#         l = sum_count[j][i]
+#         r = sum_count[j][n] - sum_count[j][i + 1]
+#         ans += l * r
 
-print(ans)
+# print(ans)
