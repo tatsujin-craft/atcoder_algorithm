@@ -7,19 +7,16 @@ Date: xxxx-yy-zz
 """
 
 
-def get_rotate_cards(N, K, cards):
-    K = K % N
-    rotate_cards = cards[-K:] + cards[:-K]
-    return rotate_cards
-
-
 def main():
-    N, K = map(int, input().split())
-    cards = list(map(int, input().split()))
+    N = int(input())
+    S = input()
+    print(S)
 
-    rotate_cards = get_rotate_cards(N, K, cards)
-    rotate_cards_str = " ".join(map(str, rotate_cards))
-    print(rotate_cards_str)
+    count = 0
+    for i in range(N - 2):
+        if S[i] == "#" and S[i + 1] == "." and S[i + 2] == "#":
+            count += 1
+    print(count)
 
 
 if __name__ == "__main__":
