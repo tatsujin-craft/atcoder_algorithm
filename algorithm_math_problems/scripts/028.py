@@ -96,13 +96,13 @@ def main():
     H = list(map(int, input().split()))
     print(f"Height of steps: {H}\n")
 
-    # Measure DP time
+    # DP
     start_time = time.time()
     print("[DP]")
     cost_dp = get_result_with_dp(N, H)
     dp_time = time.time() - start_time
 
-    # Measure brute-force time
+    # Brute-force
     start_time = time.time()
     print("[Brute force]")
     cost_brute = get_result_with_bruteforce(N, H)
