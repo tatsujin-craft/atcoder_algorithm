@@ -7,42 +7,51 @@ Date: xxxx-yy-zz
 """
 
 
-def check_all_toys(x, A, B, N):
-    B_with_new_box = B + [x]
-    B_with_new_box.sort(reverse=True)
-    A_sorted = sorted(A, reverse=True)
-    # print(
-    #     f"Checking with new box size {x}: Sorted toy sizes {A_sorted}, Sorted box sizes {B_with_new_box}"
-    # )
+def is_all_toys_fit_in_boxes(x, toy_sizes, box_sizes, N):
+    box_sizes_with_new = box_sizes + [x]
+    # Sort in descending order
+    box_sizes_with_new.sort(reverse=True)
+    sorted_toy_sizes = sorted(toy_sizes, reverse=True)
+    print(f"Try x={x}, Sorted toy sizes {sorted_toy_sizes}, Sorted box sizes {box_sizes_with_new}")
+
+    # Check all toys fit in boxes
     for i in range(N):
-        if A_sorted[i] > B_with_new_box[i]:
-            # print(
-            #     f"Toy {i+1} with size {A_sorted[i]} does not fit in box {B_with_new_box[i]}"
-            # )
+        if sorted_toy_sizes[i] > box_sizes_with_new[i]:
+            print(
+                f"Toy{i+1} failed. "
+                f"Toy size={sorted_toy_sizes[i]}, Box size={box_sizes_with_new[i]}"
+            )
             return False
     return True
 
 
 def main():
     N = int(input())
-    A = list(map(int, input().split()))
-    B = list(map(int, input().split()))
+    toy_sizes = list(map(int, input().split()))
+    box_sizes = list(map(int, input().split()))
 
-    low, high = 1, max(A)
-    # print(f"Initial range for x: low={low}, high={high}")
+    low, high = 1, max(toy_sizes)
+    print(f"Start binray search")
+    print(f"Initial value: low={low}, high={high}\n")
 
+    # Binary search until low == high, and get box size x
     while low < high:
         mid = (low + high) // 2
-        # print(f"Trying mid = {mid}")
-        if check_all_toys(mid, A, B, N):
+        print(f"low={low}, Mid={mid}, high={high}")
+        if is_all_toys_fit_in_boxes(mid, toy_sizes, box_sizes, N):
             high = mid
-            # print(f"Found valid x = {mid}, updating high to {high}")
+            print(f"x={mid} is OK, updating high={high}\n")
         else:
             low = mid + 1
-            # print(f"x = {mid} is too small, updating low to {low}")
+            print(f"x={mid} is too small, updating low={low}\n")
 
-    result = low if check_all_toys(low, A, B, N) else -1
-    # print(f"Final result: {result}")
+    if is_all_toys_fit_in_boxes(low, toy_sizes, box_sizes, N):
+        result = low
+        print(f"Min additional box size: x={result}\n")
+    else:
+        result = -1
+        print(f"No result: x={result}\n")
+
     print(result)
 
 
