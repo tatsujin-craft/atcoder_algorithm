@@ -1,0 +1,2 @@
+Generate memo text files
+$ touch memo_{a..g}.txt
