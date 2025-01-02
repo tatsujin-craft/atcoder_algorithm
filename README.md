@@ -1,22 +1,22 @@
 # atcoder_algorithm
 
-## Usage
+## 1. 使い方
 
-### 1. ワークスペース作成
+### 1.1. ワークスペース作成
 各ABCコンテストごとに、新規ワークスペースを作成。\
 (テンプレートをコピーする。)
 
 `$ cp template_abc/ <directory name> -r`\
-例: `$ cp template_abc/ abc370 -r`
+例: `$ cp template_abc/ abc368 -r`
 
-### 2. プログラム作成
+### 1.2. プログラム作成
 Pythonプログラムを作成する場合\
 `scripts`ディレクトリ内にある、`{a..g}.py`にPythonプログラムを作成。
 
 C++プログラムを実行する場合\
 `src`ディレクトリ内にある、`{a..g}.cpp`にC++プログラムを作成。
 
-### 3. サンプルのコピー
+### 1.3. サンプルのコピー
 `<directory>input_data`ディレクトリ内にある、`data{a..g}.txt`にテストケースの入力を貼りつける。
 
 複数のサンプルを一括でテスト可能。\
@@ -35,9 +35,9 @@ C++プログラムを実行する場合\
 1 2 3 4 5 6 7 8 9 10
 ```
 
-### 4. サンプルをローカルで実行
+### 1.4. サンプルをローカルで実行
 `$ ./local_tester.py <directory name> <file name>`\
-例: `$ ./local_tester.py abc370 a`
+例: `$ ./local_tester.py abc368 a`
 
 ※ ファイル名の拡張子は不要 (a.py => a)
 
@@ -62,12 +62,13 @@ C++プログラムを実行する場合\
 `--cpp`オプションを指定する\
 `$ ./local_tester.py template_abc/ a --cpp`
 
-### その他
+### 1.5. その他
 
 * 鉄則問題集(`tessoku`)の実行例\
 `$ ./local_tester.py tessoku a03`
 
 * 典型アルゴリズム(`typical`)の実行例\
+`$ ./local_tester.py typical/ 001`
 
 * アルゴリズム数学の問題集(`algorithm_math`)の実行例\
 `$ ./local_tester.py algorithm_math/ 028`
@@ -79,7 +80,7 @@ C++プログラムを実行する場合\
 `--prac`オプションを指定する\
 `$ ./local_tester.py template_abc/ a --prac`
 
-## Link
+## 2. 参考リンク
 
 * [AtCoder Contest](https://atcoder.jp/contests/)
 
