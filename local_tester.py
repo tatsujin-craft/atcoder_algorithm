@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-Script Name: auto_input.py
+Script Name: local_tester.py
 Description: 
     This script runs Python script or C++ program with automatic input data.
 
 Usage:
-    $ ./auto_input.py <directory> <file>          # Runs the main Python script
-    $ ./auto_input.py <directory> <file> --prac   # Runs the practice Python script
-    $ ./auto_input.py <directory> <file> --cpp    # Compiles and runs the C++ program
+    $ ./local_tester.py <directory> <file>          # Runs the main Python script
+    $ ./local_tester.py <directory> <file> --prac   # Runs the practice Python script
+    $ ./local_tester.py <directory> <file> --cpp    # Compiles and runs the C++ program
 
 Author: tatsujin
 Date: 2025-01-02
@@ -103,7 +103,9 @@ def main():
     # Define paths based on the provided directory and file name
     input_data_file_path = os.path.join(base_dir, "input_data", f"data_{file_name}.txt")
     python_script_path = os.path.join(base_dir, "scripts", f"{file_name}.py")
-    python_practice_script_path = os.path.join(base_dir, "practice", f"prac_{file_name}.py")
+    python_practice_script_path = os.path.join(
+        base_dir, "practice", f"prac_{file_name}.py"
+    )
     cpp_source_file_path = os.path.join(base_dir, "src", f"{file_name}.cpp")
     cpp_exe_file_path = os.path.join(base_dir, "build", f"{file_name}.out")
 
