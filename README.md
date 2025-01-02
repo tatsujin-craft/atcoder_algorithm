@@ -67,10 +67,10 @@ C++プログラムを実行する場合\
 * 鉄則問題集(`tessoku`)の実行例\
 `$ ./local_tester.py tessoku a03`
 
-* 典型アルゴリズム(`typical`)の実行例\
+* 典型アルゴリズム問題集(`typical`)の実行例\
 `$ ./local_tester.py typical/ 001`
 
-* アルゴリズム数学の問題集(`algorithm_math`)の実行例\
+* アルゴリズムと数学の演習問題(`algorithm_math`)の実行例\
 `$ ./local_tester.py algorithm_math/ 028`
 
 * ABC過去門(`past_abc`)の実行例\
@@ -82,8 +82,10 @@ C++プログラムを実行する場合\
 
 ## 2. 参考リンク
 
-* [AtCoder Contest](https://atcoder.jp/contests/)
+* [AtCoder コンテスト一覧](https://atcoder.jp/contests/)
 
-* [アルゴリズムと数学　演習問題集](https://atcoder.jp/contests/math-and-algorithm)
+* [競技プログラミングの鉄則 演習問題集](https://atcoder.jp/contests/tessoku-book)
 
-* [競技プログラミングの鉄則　演習問題集](https://atcoder.jp/contests/tessoku-book)
+* [競プロ典型 90問](https://atcoder.jp/contests/typical90)
+
+* [アルゴリズムと数学 演習問題集](https://atcoder.jp/contests/math-and-algorithm)
