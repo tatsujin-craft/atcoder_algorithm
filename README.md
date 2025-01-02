@@ -1,21 +1,28 @@
 # atcoder_algorithm
 
-## 使い方
+## Usage
 
-### 1. 新規のABCワークスペースを作成
-`$ cp abc_template/ abc{index} -r`\
-例: `$ cp abc_template/ abc370 -r`
+### 1. ワークスペース作成
+各ABCコンテストごとに、新規ワークスペースを作成。\
+(テンプレートをコピーする。)
 
-### 2. ABCの問題を解く
-`abc{index}/scripts`ディレクトリ内にある、`{a..g}.py`にPythonプログラムを作成。
+`$ cp template_abc/ <directory name> -r`\
+例: `$ cp template_abc/ abc370 -r`
+
+### 2. プログラム作成
+Pythonプログラムを作成する場合\
+`scripts`ディレクトリ内にある、`{a..g}.py`にPythonプログラムを作成。
+
+C++プログラムを実行する場合\
+`src`ディレクトリ内にある、`{a..g}.cpp`にC++プログラムを作成。
 
 ### 3. サンプルのコピー
-`abc{index}/input_data`ディレクトリ内にある、`data{a..g}.txt`にテストケースの入力を貼りつける。
+`<directory>input_data`ディレクトリ内にある、`data{a..g}.txt`にテストケースの入力を貼りつける。
 
 複数のサンプルを一括でテスト可能。\
-下記の例のように、改行することで異なるサンプルとして実行される。
+下記の例のように、サンプル末尾に空行を追加することで、異なる3つのサンプルとして実行される。
 
-例: `abc_template/input_data/data_a.txt`
+例: `template_abc/input_data/data_a.txt`
 
 ```
 5 3
@@ -29,12 +36,14 @@
 ```
 
 ### 4. サンプルをローカルで実行
-`$ ./local_tester.py abc{index} {a..g}`\
+`$ ./local_tester.py <directory name> <file name>`\
 例: `$ ./local_tester.py abc370 a`
 
+※ ファイル名の拡張子は不要 (a.py => a)
+
 実行結果の例\
-3つの異なるサンプルが、それぞれ実行される。\
-`$ ./local_tester.py abc_template/ a` \
+異なる3つのサンプルが、それぞれ実行される。\
+`$ ./local_tester.py template_abc/ a` \
 
 ```
 --- Execution 1 ---
@@ -48,6 +57,27 @@
 --- Execution 3 ---
 8 9 10 1 2 3 4 5 6 7
 ```
+
+C++プログラムを実行する場合\
+`--cpp`オプションを指定する\
+`$ ./local_tester.py template_abc/ a --cpp`
+
+### その他
+
+* 鉄則問題集(`tessoku`)の実行例\
+`$ ./local_tester.py tessoku a03`
+
+* 典型アルゴリズム(`typical`)の実行例\
+
+* アルゴリズム数学の問題集(`algorithm_math`)の実行例\
+`$ ./local_tester.py algorithm_math/ 028`
+
+* ABC過去門(`past_abc`)の実行例\
+`$ ./local_tester.py past_abc/ 365_a`
+
+* 練習用プログラムを実行\
+`--prac`オプションを指定する\
+`$ ./local_tester.py template_abc/ a --prac`
 
 ## Link
 
